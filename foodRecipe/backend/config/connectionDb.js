@@ -1,8 +1,12 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
 
-const connectDb=async()=>{
-    await mongoose.connect("mongodb+srv://kethanvarmaab:Abkv&369@clusterfoodrecipe.cwprddc.mongodb.net/?retryWrites=true&w=majority&appName=Clusterfoodrecipe")
-    .then(()=>console.log("connected..."))
-}
+const connectDb = async () => {
+  try {
+    await mongoose.connect(process.env.CONNECTION_STRING);
+    console.log("MongoDB connected...");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+  }
+};
 
-module.exports=connectDb
+module.exports = connectDb;
