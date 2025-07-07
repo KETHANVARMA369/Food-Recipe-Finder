@@ -23,7 +23,7 @@ export default function RecipeItems() {
   }, [recipes])
 
   const onDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/recipe/${id}`)
+    await axios.delete(`https://food-recipe-finder-x85i.onrender.com/recipe/${id}`)
     setAllRecipes(prev => prev.filter(recipe => recipe._id !== id))
     const updatedFav = favItems.filter(recipe => recipe._id !== id)
     localStorage.setItem("fav", JSON.stringify(updatedFav))
@@ -49,7 +49,7 @@ export default function RecipeItems() {
         {filteredRecipes?.length > 0 ? (
           filteredRecipes.map((item, index) => (
             <div key={index} className='card' onClick={() => navigate(`/recipe/${item._id}`)}>
-              <img src={`http://localhost:5000/images/${item.coverImage}`} width="120px" height="100px" />
+              <img src={`https://food-recipe-finder-x85i.onrender.com/images/${item.coverImage}`} width="120px" height="100px" />
               <div className='card-body'>
                 <div className='title'>{item.title}</div>
                 <div className='icons'>
