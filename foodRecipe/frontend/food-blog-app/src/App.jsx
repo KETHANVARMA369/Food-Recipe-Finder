@@ -11,9 +11,10 @@ import RecipeDetails from './pages/RecipeDetails'
 
 const getAllRecipes=async()=>{
   let allRecipes=[]
-  await axios.get('https://food-recipe-finder-x85i.onrender.com').then(res=>{
-    allRecipes=res.data
-  })
+  await axios.get('https://food-recipe-finder-x85i.onrender.com/recipe')
+    .then(res=>{
+      allRecipes=res.data
+    })
   return allRecipes
 }
 
